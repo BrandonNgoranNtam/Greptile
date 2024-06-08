@@ -1,0 +1,43 @@
+{
+    "manifest_version": 3,
+    "name": "phoenix-project",
+    "description": "An awesome extension for chrome",
+    "version": "1.0.0",
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Phoenix",
+        "default_icon": "icon.png"
+    },
+    "chrome_url_overrides": {
+        "newtab": "newTab.html"
+    },
+    "permissions": [
+        "tabs",
+        "bookmarks",
+        "storage",
+        "identity",
+        "activeTab",
+        "scripting"
+    ],
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+    "options_page": "options.html",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "contentScript.js"
+            ],
+            "run_at": "document_end"
+
+        }
+    ]
+}
